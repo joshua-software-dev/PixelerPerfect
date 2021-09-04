@@ -6,7 +6,7 @@
                 OutputPath="$(OutputPath)"
                 AssemblyName="$(AssemblyName)"
                 MakeZip="true"
-                Exclude="*.deps.json"
+                Exclude="PixelPerfectv4.deps.json"
                 ManifestType="json"
         />
     </Target>
