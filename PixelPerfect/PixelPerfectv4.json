@@ -1,0 +1,11 @@
+{
+  "Author": "Haplo064, joshua.software.dev",
+  "DalamudApiLevel": 4,
+  "Description": "Show a representation of your real character hitbox on screen.",
+  "IconUrl": "",
+  "ImageUrls": [],
+  "InternalName": "PixelPerfectv4",
+  "Name": "Pixel Perfect",
+  "Punchline": "Adds an indicator of your hitbox.",
+  "RepoUrl": "https://github.com/joshua-software-dev/PixelPerfectv4"
+}

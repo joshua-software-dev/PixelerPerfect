@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="../Version/Version.csproj" />
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <LangVersion>9.0</LangVersion>
+        <Nullable>enable</Nullable>
+
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AssemblyFileVersion>$(PluginVersion)</AssemblyFileVersion>
+        <AssemblyName>PixelPerfectv4</AssemblyName>
+        <AssemblyTitle>Pixel Perfect</AssemblyTitle>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <Description>Adds an indicator of your hitbox.</Description>
+        <DalamudVersion>dev</DalamudVersion>
+        <FileVersion>$(PluginVersion)</FileVersion>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <NoWarn>CA1416</NoWarn>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\$(Configuration)\</OutputPath>
+        <OutputType>Library</OutputType>
+        <PreserveCompilationContext>false</PreserveCompilationContext>
+        <Version>$(PluginVersion)</Version>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug'">
+        <DebugType>full</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release'">
+        <DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <DalamudDevPath>../windows/XIVLauncher/addon/Hooks/$(DalamudVersion)/</DalamudDevPath>
+        <NulName>/dev/null</NulName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$([MSBuild]::IsOsPlatform(Windows))' == 'true'">
+        <DalamudDevPath>$(APPDATA)\XIVLauncher\addon\Hooks\$(DalamudVersion)\</DalamudDevPath>
+        <NulName>NUL</NulName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="DalamudPackager" Version="1.2.3" />
+        <Reference Include="Dalamud">
+            <Private>false</Private>
+            <HintPath>$(DalamudDevPath)Dalamud.dll</HintPath>
+        </Reference>
+        <Reference Include="FFXIVClientStructs">
+            <Private>false</Private>
+            <HintPath>$(DalamudDevPath)FFXIVClientStructs.dll</HintPath>
+        </Reference>
+        <Reference Include="ImGui.NET">
+            <Private>false</Private>
+            <HintPath>$(DalamudDevPath)ImGui.NET.dll</HintPath>
+        </Reference>
+        <Reference Include="ImGuiScene">
+            <Private>false</Private>
+            <HintPath>$(DalamudDevPath)ImGuiScene.dll</HintPath>
+        </Reference>
+        <Reference Include="Lumina">
+            <Private>false</Private>
+            <HintPath>$(DalamudDevPath)Lumina.dll</HintPath>
+        </Reference>
+        <Reference Include="Lumina.Excel">
+            <Private>false</Private>
+            <HintPath>$(DalamudDevPath)Lumina.Excel.dll</HintPath>
+        </Reference>
+        <Content Include="PixelPerfectv4.json" />
+    </ItemGroup>
+
+</Project>

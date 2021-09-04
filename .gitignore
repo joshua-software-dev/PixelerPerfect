@@ -1,0 +1,10 @@
+bin/
+bin/*
+obj/
+obj/*
+windows
+windows/
+windows/*
+.idea/
+.idea/*
+PixelPerfect.sln.DotSettings.user
