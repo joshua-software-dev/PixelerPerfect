@@ -9,7 +9,7 @@ using PixelPerfect.GUI;
 namespace PixelPerfect {
     public class Plugin : IDalamudPlugin
     {
-        public string Name => "Pixel Perfect";
+        public string Name => "Pixeler Perfect";
         public string AssemblyLocation { get; set; } = System.Reflection.Assembly.GetExecutingAssembly().Location;
         public DalamudPluginInterface PluginInterface { get; }
         public ClientState ClientState { get; }
@@ -66,11 +66,10 @@ namespace PixelPerfect {
             SetupCommands();
         }
 
-        public void Dispose() 
+        public void Dispose()
         {
             PluginInterface.UiBuilder.Draw -= BuildUi;
             RemoveCommands();
-            PluginInterface.Dispose();
         }
 
         private void OpenCommandWindow(string command, string args)
@@ -78,11 +77,11 @@ namespace PixelPerfect {
             _drawConfigWindow = true;
         }
 
-        private void SetupCommands() 
+        private void SetupCommands()
         {
             CommandManager.AddHandler(
-                "/pp", 
-                new CommandInfo(OpenCommandWindow) 
+                "/pp",
+                new CommandInfo(OpenCommandWindow)
                 {
                     HelpMessage = $"Open config window for {Name}",
                     ShowInHelp = true
@@ -90,12 +89,12 @@ namespace PixelPerfect {
             );
         }
 
-        private void RemoveCommands() 
+        private void RemoveCommands()
         {
             CommandManager.RemoveHandler("/pp");
         }
 
-        private void BuildUi() 
+        private void BuildUi()
         {
             _drawConfigWindow = _drawConfigWindow && PluginGui.DrawPluginConfig();
             if (ClientState.IsLoggedIn)

@@ -2,9 +2,10 @@ bin/
 bin/*
 obj/
 obj/*
-windows
-windows/
-windows/*
 .idea/
 .idea/*
 PixelPerfect.sln.DotSettings.user
+deps/lib/dalamud
+deps/lib/dalamud/
+deps/lib/dalamud/*
+PixelerPerfect/packages.lock.json

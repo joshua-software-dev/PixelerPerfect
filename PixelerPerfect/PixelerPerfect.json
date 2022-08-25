@@ -1,0 +1,15 @@
+{
+  "Author": "Haplo064, joshua.software.dev",
+  "DalamudApiLevel": 7,
+  "Description": "Show a representation of your real character hitbox on screen.",
+  "IconUrl": "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/icon.png",
+  "ImageUrls": [
+    "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image1.png",
+    "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image2.png",
+    "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image3.png"
+  ],
+  "InternalName": "PixelerPerfect",
+  "Name": "Pixeler Perfect",
+  "Punchline": "Adds an indicator of your hitbox.",
+  "RepoUrl": "https://github.com/joshua-software-dev/PixelPerfectv4"
+}

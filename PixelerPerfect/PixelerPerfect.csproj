@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="../Version/Version.csproj" />
+    <PropertyGroup>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <LangVersion>10.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <Optimize>true</Optimize>
+        <PlatformTarget>x64</PlatformTarget>
+
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AssemblyFileVersion>$(PluginVersion)</AssemblyFileVersion>
+        <AssemblyName>PixelerPerfect</AssemblyName>
+        <AssemblyTitle>Pixeler Perfect</AssemblyTitle>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <Description>Adds an indicator of your hitbox.</Description>
+        <DalamudVersion>dev</DalamudVersion>
+        <FileVersion>$(PluginVersion)</FileVersion>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\$(Configuration)\</OutputPath>
+        <OutputType>Library</OutputType>
+        <PreserveCompilationContext>false</PreserveCompilationContext>
+        <RelativeDalamudLibPath>$(MSBuildThisFileDirectory)/../deps/lib/dalamud/</RelativeDalamudLibPath>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+        <Version>$(PluginVersion)</Version>
+
+        <DalamudLibPath>$([System.IO.Path]::GetFullPath('$(RelativeDalamudLibPath)'))</DalamudLibPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug'">
+        <DebugType>full</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release'">
+        <DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="DalamudPackager" Version="2.1.8" />
+        <Reference Include="Dalamud">
+            <Private>false</Private>
+            <HintPath>$(DalamudLibPath)Dalamud.dll</HintPath>
+        </Reference>
+        <Reference Include="ImGui.NET">
+            <Private>false</Private>
+            <HintPath>$(DalamudLibPath)ImGui.NET.dll</HintPath>
+        </Reference>
+        <Content Include="PixelerPerfect.json" />
+    </ItemGroup>
+
+    <Target Name="DownloadDalamudDependencies" BeforeTargets="CollectPackageReferences">
+        <DownloadFile Condition="!Exists('../deps/lib/dalamud/ImGui.NET.dll')" DestinationFolder="../deps/lib/dalamud/" SourceUrl="https://github.com/goatcorp/dalamud-distrib/raw/main/stg/latest.zip" />
+    </Target>
+
+    <Target Name="UnzipDalamud" AfterTargets="DownloadDalamudDependencies">
+        <Unzip Condition="!Exists('../deps/lib/dalamud/ImGui.NET.dll')" DestinationFolder="../deps/lib/dalamud/" SourceFiles="../deps/lib/dalamud/latest.zip" />
+    </Target>
+
+</Project>
