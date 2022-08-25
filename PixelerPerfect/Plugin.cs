@@ -3,104 +3,104 @@ using Dalamud.Game.ClientState;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Plugin;
-using PixelPerfect.GUI;
+using PixelerPerfect.GUI;
 
 
-namespace PixelPerfect {
-    public class Plugin : IDalamudPlugin
+namespace PixelerPerfect;
+
+public class Plugin : IDalamudPlugin
+{
+    public string Name => "Pixeler Perfect";
+    public string AssemblyLocation { get; set; } = System.Reflection.Assembly.GetExecutingAssembly().Location;
+    public DalamudPluginInterface PluginInterface { get; }
+    public ClientState ClientState { get; }
+    public CommandManager CommandManager { get; }
+    public Condition Condition { get; }
+    public GameGui GameGui { get; }
+    private Config PluginConfig { get; }
+    private WorldHelper WorldHelper { get; }
+    private PluginGui PluginGui { get; }
+
+    private bool _drawConfigWindow = false;
+
+    public Plugin
+    (
+        DalamudPluginInterface pluginInterface,
+        //BuddyList buddies,
+        //ChatGui chat,
+        //ChatHandlers chatHandlers,
+        ClientState clientState,
+        CommandManager commands,
+        Condition condition,
+        //DataManager data,
+        //FateTable fates,
+        //FlyTextGui flyText,
+        //Framework framework,
+        GameGui gameGui
+        //GameNetwork gameNetwork,
+        //JobGauges gauges,
+        //KeyState keyState,
+        //LibcFunction libcFunction,
+        //ObjectTable objects,
+        //PartyFinderGui pfGui,
+        //PartyList party,
+        //SeStringManager seStringManager,
+        //SigScanner sigScanner
+        //TargetManager targets,
+        //ToastGui toasts
+    )
     {
-        public string Name => "Pixeler Perfect";
-        public string AssemblyLocation { get; set; } = System.Reflection.Assembly.GetExecutingAssembly().Location;
-        public DalamudPluginInterface PluginInterface { get; }
-        public ClientState ClientState { get; }
-        public CommandManager CommandManager { get; }
-        public Condition Condition { get; }
-        public GameGui GameGui { get; }
-        private Config PluginConfig { get; }
-        private WorldHelper WorldHelper { get; }
-        private PluginGui PluginGui { get; }
+        PluginInterface = pluginInterface;
+        ClientState = clientState;
+        CommandManager = commands;
+        Condition = condition;
+        GameGui = gameGui;
 
-        private bool _drawConfigWindow = false;
+        PluginConfig = (Config) (pluginInterface.GetPluginConfig() ?? new Config());
+        PluginConfig.Init(this);
 
-        public Plugin
-        (
-            DalamudPluginInterface pluginInterface,
-            //BuddyList buddies,
-            //ChatGui chat,
-            //ChatHandlers chatHandlers,
-            ClientState clientState,
-            CommandManager commands,
-            Condition condition,
-            //DataManager data,
-            //FateTable fates,
-            //FlyTextGui flyText,
-            //Framework framework,
-            GameGui gameGui
-            //GameNetwork gameNetwork,
-            //JobGauges gauges,
-            //KeyState keyState,
-            //LibcFunction libcFunction,
-            //ObjectTable objects,
-            //PartyFinderGui pfGui,
-            //PartyList party,
-            //SeStringManager seStringManager,
-            //SigScanner sigScanner
-            //TargetManager targets,
-            //ToastGui toasts
-        )
-        {
-            PluginInterface = pluginInterface;
-            ClientState = clientState;
-            CommandManager = commands;
-            Condition = condition;
-            GameGui = gameGui;
+        WorldHelper = new WorldHelper(this);
+        PluginGui = new PluginGui(PluginConfig, WorldHelper);
 
-            PluginConfig = (Config) (pluginInterface.GetPluginConfig() ?? new Config());
-            PluginConfig.Init(this);
+        PluginInterface.UiBuilder.Draw += BuildUi;
+        PluginInterface.UiBuilder.OpenConfigUi += () => _drawConfigWindow = true;
+        SetupCommands();
+    }
 
-            WorldHelper = new WorldHelper(this);
-            PluginGui = new PluginGui(PluginConfig, WorldHelper);
+    public void Dispose()
+    {
+        PluginInterface.UiBuilder.Draw -= BuildUi;
+        RemoveCommands();
+    }
 
-            PluginInterface.UiBuilder.Draw += BuildUi;
-            PluginInterface.UiBuilder.OpenConfigUi += () => _drawConfigWindow = true;
-            SetupCommands();
-        }
+    private void OpenCommandWindow(string command, string args)
+    {
+        _drawConfigWindow = true;
+    }
 
-        public void Dispose()
-        {
-            PluginInterface.UiBuilder.Draw -= BuildUi;
-            RemoveCommands();
-        }
-
-        private void OpenCommandWindow(string command, string args)
-        {
-            _drawConfigWindow = true;
-        }
-
-        private void SetupCommands()
-        {
-            CommandManager.AddHandler(
-                "/pp",
-                new CommandInfo(OpenCommandWindow)
-                {
-                    HelpMessage = $"Open config window for {Name}",
-                    ShowInHelp = true
-                }
-            );
-        }
-
-        private void RemoveCommands()
-        {
-            CommandManager.RemoveHandler("/pp");
-        }
-
-        private void BuildUi()
-        {
-            _drawConfigWindow = _drawConfigWindow && PluginGui.DrawPluginConfig();
-            if (ClientState.IsLoggedIn)
+    private void SetupCommands()
+    {
+        CommandManager.AddHandler(
+            "/pp",
+            new CommandInfo(OpenCommandWindow)
             {
-                PluginGui.DrawInWorld();
+                HelpMessage = $"Open config window for {Name}",
+                ShowInHelp = true
             }
+        );
+    }
+
+    private void RemoveCommands()
+    {
+        CommandManager.RemoveHandler("/pp");
+    }
+
+    private void BuildUi()
+    {
+        _drawConfigWindow = _drawConfigWindow && PluginGui.DrawPluginConfig();
+        if (ClientState.IsLoggedIn)
+        {
+            PluginGui.DrawInWorld();
         }
     }
 }
