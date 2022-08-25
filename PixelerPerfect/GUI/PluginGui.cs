@@ -74,7 +74,7 @@ public class PluginGui
             new Vector2(x: 400 * scale, y: 390)
         );
         ImGui.Begin(
-            "Pixel Perfect 5 Config",
+            "Pixeler Perfect Config",
             ref drawConfig,
             ImGuiWindowFlags.NoCollapse |
             ImGuiWindowFlags.NoResize
@@ -82,24 +82,6 @@ public class PluginGui
 
         var buttonTriggered = false;
         buttonTriggered |= ImGui.Checkbox("Show hitbox pixel", ref _showHitboxPixel);
-
-        ImGui.SameLine(230 * scale);
-        ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
-        ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
-        ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
-
-        if (ImGui.Button("Buy Haplo a Hot Chocolate"))
-        {
-            Process.Start(
-                new ProcessStartInfo
-                {
-                    FileName = "https://ko-fi.com/haplo",
-                    UseShellExecute = true
-                }
-            );
-        }
-        ImGui.PopStyleColor(3);
-
         buttonTriggered |= ImGui.Checkbox("Show hitbox pixel border", ref _showHitboxPixelBorder);
         buttonTriggered |= ImGui.Checkbox("Only show hitbox pixel in combat", ref _onlyShowHitboxPixelInCombat);
         buttonTriggered |= ImGui.Checkbox("Only show hitbox pixel in instances", ref _onlyShowHitboxPixelInInstances);
