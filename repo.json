@@ -1,0 +1,50 @@
+[
+    {
+        "ApplicableVersion": "any",
+        "AssemblyVersion": "1.0.0.2",
+        "Author": "Haplo064",
+        "Changelog": "Update to 6.3 / Dalamud API 8 / .NET 7",
+        "DalamudApiLevel": 8,
+        "Description": "An update of the older version of pixel perfect. Show a representation of your real character hitbox on screen.",
+        "DownloadCount": 0,
+        "DownloadLinkInstall": "",
+        "DownloadLinkTesting": "",
+        "DownloadLinkUpdate": "",
+        "IconUrl": "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/icon.png",
+        "ImageUrls": [
+            "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image1.png",
+            "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image2.png",
+            "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image3.png"
+        ],
+        "InternalName": "PixelPerfectLegacy",
+        "IsHide": "False",
+        "IsTestingExclusive": "False",
+        "LastUpdate": 1675337711,
+        "Name": "Pixel Perfect Legacy",
+        "RepoUrl": "https://github.com/joshua-software-dev/PixelPerfectv4"
+    },
+    {
+        "ApplicableVersion": "any",
+        "AssemblyVersion": "1.0.0.1",
+        "Author": "Haplo064, joshua.software.dev",
+        "Changelog": "Update to 6.3 / Dalamud API 8 / .NET 7",
+        "DalamudApiLevel": 8,
+        "Description": "Show a representation of your real character hitbox on screen.",
+        "DownloadCount": 0,
+        "DownloadLinkInstall": "",
+        "DownloadLinkTesting": "",
+        "DownloadLinkUpdate": "",
+        "IconUrl": "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/icon.png",
+        "ImageUrls": [
+            "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image1.png",
+            "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image2.png",
+            "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image3.png"
+        ],
+        "InternalName": "PixelerPerfect",
+        "IsHide": "False",
+        "IsTestingExclusive": "False",
+        "LastUpdate": 1675337711,
+        "Name": "Pixeler Perfect",
+        "RepoUrl": "https://github.com/joshua-software-dev/PixelPerfectv4"
+    }
+]
