@@ -11,6 +11,7 @@ namespace PixelerPerfect;
 public class Plugin : IDalamudPlugin
 {
     public string Name => "Pixeler Perfect";
+    public string SettingsCommand => "/pxpr";
     public string AssemblyLocation { get; set; } = System.Reflection.Assembly.GetExecutingAssembly().Location;
     public DalamudPluginInterface PluginInterface { get; }
     public ClientState ClientState { get; }
@@ -81,7 +82,7 @@ public class Plugin : IDalamudPlugin
     private void SetupCommands()
     {
         CommandManager.AddHandler(
-            "/pp",
+            SettingsCommand,
             new CommandInfo(OpenCommandWindow)
             {
                 HelpMessage = $"Open config window for {Name}",
@@ -92,7 +93,7 @@ public class Plugin : IDalamudPlugin
 
     private void RemoveCommands()
     {
-        CommandManager.RemoveHandler("/pp");
+        CommandManager.RemoveHandler(SettingsCommand);
     }
 
     private void BuildUi()

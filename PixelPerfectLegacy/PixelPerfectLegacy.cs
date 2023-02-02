@@ -110,7 +110,7 @@ public class PixelPerfectLegacy : IDalamudPlugin
             
         pluginInterface.UiBuilder.Draw += DrawWindow;
         pluginInterface.UiBuilder.OpenConfigUi += ConfigWindow;
-        commandManager.AddHandler("/pp", new CommandInfo(Command)
+        commandManager.AddHandler("/pplegacy", new CommandInfo(Command)
         {
             HelpMessage = "Pixel Perfect config." +
                           "\nArguments of 'ring', 'ring2', 'north' will enable/disable those features."
@@ -127,7 +127,7 @@ public class PixelPerfectLegacy : IDalamudPlugin
     {
         _pi.UiBuilder.Draw -= DrawWindow;
         _pi.UiBuilder.OpenConfigUi -= ConfigWindow;
-        _cm.RemoveHandler("/pp");
+        _cm.RemoveHandler("/pplegacy");
     }
 
 
