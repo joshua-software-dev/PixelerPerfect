@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="../Version/VersionPixeler.csproj" />
+    <Import Project="../Version/VersionLegacy.csproj" />
     <PropertyGroup>
         <TargetFramework>net7.0-windows</TargetFramework>
         <LangVersion>11.0</LangVersion>
@@ -10,8 +10,8 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AssemblyFileVersion>$(PluginVersion)</AssemblyFileVersion>
-        <AssemblyName>PixelerPerfect</AssemblyName>
-        <AssemblyTitle>Pixeler Perfect</AssemblyTitle>
+        <AssemblyName>PixelPerfectLegacy</AssemblyName>
+        <AssemblyTitle>Pixeler Perfect Legacy</AssemblyTitle>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <Description>Adds an indicator of your hitbox.</Description>
         <DalamudVersion>dev</DalamudVersion>
@@ -49,7 +49,7 @@
             <Private>false</Private>
             <HintPath>$(DalamudLibPath)ImGui.NET.dll</HintPath>
         </Reference>
-        <Content Include="PixelerPerfect.json" />
+        <Content Include="PixelPerfectLegacy.json" />
     </ItemGroup>
 
     <Target Name="DownloadDalamudDependencies" BeforeTargets="CollectPackageReferences">

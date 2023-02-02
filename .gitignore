@@ -9,3 +9,5 @@ deps/lib/dalamud
 deps/lib/dalamud/
 deps/lib/dalamud/*
 PixelerPerfect/packages.lock.json
+PixelPerfectLegacy/packages.lock.json
+publish_dev.sh

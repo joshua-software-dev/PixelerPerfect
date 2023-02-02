@@ -2,15 +2,15 @@
   "Author": "Haplo064, joshua.software.dev",
   "Changelog": "Update to 6.3 / Dalamud API 8 / .NET 7",
   "DalamudApiLevel": 8,
-  "Description": "A modern version of Pixel Perfect with a more simple design. Show a representation of your real character hitbox on screen.",
+  "Description": "An update of the older version of pixel perfect. Show a representation of your real character hitbox on screen.",
   "IconUrl": "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/icon.png",
   "ImageUrls": [
     "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image1.png",
     "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image2.png",
     "https://raw.githubusercontent.com/Haplo064/PixelPerfect/master/images/image3.png"
   ],
-  "InternalName": "PixelerPerfect",
-  "Name": "Pixeler Perfect",
+  "InternalName": "PixelPerfectLegacy",
+  "Name": "Pixel Perfect Legacy",
   "Punchline": "Adds an indicator of your hitbox.",
   "RepoUrl": "https://github.com/joshua-software-dev/PixelerPerfect"
 }

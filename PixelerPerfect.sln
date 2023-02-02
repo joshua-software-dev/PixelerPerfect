@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelerPerfect", "PixelerPerfect\PixelerPerfect.csproj", "{E587764A-9109-4B39-ACB8-50E7BDBE646D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelPerfectLegacy", "PixelPerfectLegacy\PixelPerfectLegacy.csproj", "{FACAC055-F0C0-4BD5-B55D-0B6B4B0DE6B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{E587764A-9109-4B39-ACB8-50E7BDBE646D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E587764A-9109-4B39-ACB8-50E7BDBE646D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E587764A-9109-4B39-ACB8-50E7BDBE646D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FACAC055-F0C0-4BD5-B55D-0B6B4B0DE6B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FACAC055-F0C0-4BD5-B55D-0B6B4B0DE6B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FACAC055-F0C0-4BD5-B55D-0B6B4B0DE6B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FACAC055-F0C0-4BD5-B55D-0B6B4B0DE6B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
