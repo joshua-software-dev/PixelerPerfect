@@ -136,7 +136,7 @@ public class PixelPerfectLegacy : IDalamudPlugin
         if (_config)
         {
             ImGui.SetNextWindowSize(new Num.Vector2(300, 500), ImGuiCond.FirstUseEver);
-            ImGui.Begin("Pixel Perfect Config", ref _config);
+            ImGui.Begin("Pixel Perfect Legacy Config", ref _config);
                 
             ImGui.Checkbox("Combat Only", ref _combat);
             if (ImGui.IsItemHovered())
