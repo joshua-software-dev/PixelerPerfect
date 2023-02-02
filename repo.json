@@ -21,7 +21,7 @@
         "IsTestingExclusive": "False",
         "LastUpdate": 1675337711,
         "Name": "Pixel Perfect Legacy",
-        "RepoUrl": "https://github.com/joshua-software-dev/PixelPerfectv4"
+        "RepoUrl": "https://github.com/joshua-software-dev/PixelerPerfect"
     },
     {
         "ApplicableVersion": "any",
@@ -45,6 +45,6 @@
         "IsTestingExclusive": "False",
         "LastUpdate": 1675337711,
         "Name": "Pixeler Perfect",
-        "RepoUrl": "https://github.com/joshua-software-dev/PixelPerfectv4"
+        "RepoUrl": "https://github.com/joshua-software-dev/PixelerPerfect"
     }
 ]
